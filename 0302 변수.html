@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+
+        <h1 id="title">id를 통해 내용을 작성합니다</h1>
+        <input type="text" id="input" value="안녕" name="">
+
     <!-- 자바스크립트 -->
     <script>
         // 변수는 값을 담아서 저장할 수 있다
@@ -30,6 +34,115 @@
         let age = "20";
         let number = "010-123-4567";
         console.log (name + age + number);
+
+            /*
+        let hi = "hello world";
+        hi
+        'hello world'
+        let num1 = 100;
+        let num2 = 330;
+        num1 + num2 = 430
+
+        let currentHumidity = 70;
+        let rainHumidity = 65;
+        let isRain = currentHumidity>rainHumidity; //현재 습도가 비가 올때보다 높다면
+        isRain 
+        true */
+
+        // 복합대입연산자
+        let numOpar = 0;
+        // 현재 변수에 1을 더해줄 때
+        numOpar = numOpar + 1; // numOper :1
+        console.log(numOpar);
+
+        // 복합 대입연산자를 이용하여 1더해줌
+        numOpar += 1; // numOpar :2  
+        console.log(numOpar);
+
+        numOpar *= 3;
+        console.log(numOpar);
+
+        // 증감연산자 : 1씩 감소, 증가할 때 사용
+        numOpar++;
+        console.log(numOpar); //1씩 증가하거나 1씩 감소하게 될 때는 단항연산자를 사용해서
+        // 규칙을 찾아서 횟수만큼 
+
+        // 후위연산자 : 가장 마지막에 계산
+        // 실행순서 : 1)console.log(), 2)numOpar++
+        console.log(numOpar++);
+        console.log(numOpar);
+        
+        // 전위 연산자 : 가장 처음에 계산
+        // 실행 순서 : 1) ++numOpar , 2) console.log()
+        console.log(++numOpar);
+        console.log(numOpar);
+
+        // 일반 계산식과 함께 사용할 때도 가장 먼저
+        // 실행순서 : 1)++numOpar 2) /5 3)console.log()
+        console.log(++numOpar/5);
+
+
+
+        /*복합대입연산자와 증감연산자 실습*/
+        let sumNum = 0;
+        sumNum = sumNum + 1;
+        console.log("sumNum: ", sumNum);
+
+        //복합대입연산자
+        sumNum += 1;
+        console.log("sumNum: ", sumNum);  //현재 변수에서 값을 곱하거나 더하거나 할 때는 복합대입연산자
+
+        //증감연산자
+        sumNum++;
+        console.log("sumNum: ", sumNum);
+
+        //1씩 감소
+        sumNum--;
+        console.log("sumNum: ", sumNum);
+
+        //복합대입연산자
+        sumNum -= 1;
+        console.log("sumNum: ", sumNum);
+
+        //증간연산자
+        sumNum--;
+        console.log("sumNum: ", sumNum);
+
+        false == "" // 빈 문자열 불린을 통해 자동으로 변환하면 
+
+
+        // 특수 자료형 실습
+        num=10; text=":숫자입니다";
+        typeof(num);
+        typeof(text);
+        console.log(numText = num + text);
+        console.log(typeof 'numText');
+
+        const maxWidth = 2;
+        console.log(maxWidth);
+
+        /* 콘솔 또는 HTML에 출력하기 위한 명령어 */
+        console.log("콘솔에 내용을 출력합니다");
+        alert("경고창에 내용출력");
+        document.getElementById('title').innerHTML
+            = "id를 통해 태그를 찾고 값을 할당할 수 있다";
+
+        //위에서 아래로 실행 위에서 아래로 출력
+        //alert이 출력중인 동안에는 출력되지 않고 출력 된 후에 출력이 된다
+
+        /* 값을 입력하는 방법 */
+        // 창을 띄워서 값 가져오기
+        let name1 = prompt("이름을 입력하세요"); //let 변수사용해서 지정 의미있는 값을 입력하도록 
+        alert(name);
+        // id를 통해서 input태그에 있는 value 값 가져오기
+        let inputValue = document.getElementById('input').value
+        console.log(inputVlaue);
+        
+        // 모두 let으로 바꿔 진행 
+        // 62p 나이 계산 프로그램 만들기
+        // 이벤트와 함수 ,, 
+        
+
     </script>
 </body>
 </html>
