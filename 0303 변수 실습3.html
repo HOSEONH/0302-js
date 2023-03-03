@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 결과값 출력 -->
+    <h1>점수 결과 입니다</h1>
+    <p id="result">결과</p>
+    <!-- 자바스크립트 -->
+    <script>
+        // 1. prompt로 점수값 받아오기
+        let score = prompt("점수를 입력하세요", "0");
+
+        // 2. 점수값을 (60점)비교해서 결과 확인
+        let result = score >= 60; //result html과 자바스크립트에서와 상관없음 
+
+        // 3. 결과를 화면에 출력(태그값 찾아서 값을 할당)
+        document.getElementById("result").innerHTML
+                        = result; //변수값 안에 있는 내용을 그대로 사용하기 위해서 
+
+        /*
+        
+        let score = prompt("점수를 입력해주세요");
+        let result = score >= 60;
+        document.write(score>=60)
+        */
+    </script>
+</body>
+</html>
