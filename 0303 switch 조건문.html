@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자바스크립트 -->
+    <script>
+        // switch문을 이용한 조건문
+        // 1, 2, 3 값을 넣었을 때, 일, 이, 삼 한글로 출력
+        // 1. 변수 : num
+        // 2. 조건식/ 참일때 실행하는 문장
+        //      num == 1 / 일
+        //      num == 2 / 이
+        //      num == 3 / 삼
+        let num = 1;
+        switch (num) {
+            case 1: //각각의 케이스들과 비교하게됨
+                document.write("<p>일</p>");
+                //break; //끊어줘야 함 현재 case를 마치고 빠져나오는 용도로 사용 //하나만 실행하고 싶을 때는 break를 넣어서 구분해 사용
+            case 2: case 4: //case를 묶어줄 수도 있다
+                document.write("<p>이와 사</p>");
+                break;
+            case 3:
+                document.write("<p>삼</p>");
+                break;
+            default: //else와 비슷하게 작성하게 됨 조건이 맞지 않은 가장 아래쪽 //그 외의 숫자 혹은 지정하지 않은 것들
+                document.write("<p>저장되지 않은 숫자입니다</p>")
+        } //기본형태 비교할 값은 변수로 지정 하고 값을 스위치 안에 넣어서 num값은 각각의 case들과 비교
+        // 작성을 할 때는 같은 자료형으로 
+        //변수와 케이스가 같을 때 실행된다
+        //반드시 브레이크가 있어야 현재의 케이스가 실행된다
+    </script>
+</body>
+</html>
