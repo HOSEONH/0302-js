@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 단항 : ++, -- 하나의 변수에서 쓸 수 있는 연산자
+        // 삼항 : 세개의 값을 이용해서 쓸 수 있는 연산자
+
+        // 삼항연산자 : 조건식과 참일때와 거짓일 때의 값을 이용한 계산식
+        // if문은 조건식에 따라 {}안의 내용이 실행
+        // 삼항연산자는 연산자이기 때문에 계산하고 그 결과를 출력
+        true ? "참입니다" : "거짓"; // 3+1; 동일
+        // 변수에 값을 담아서 사용하거나 consol.log에 담아서 바로 출력
+        let result = true ? "참입니다" : "거짓"; 
+        // let result = false ? "참입니다" : "거짓"; 
+        // 거짓
+        // 값을 선택해서 가져오고 싶다
+
+        let money = 1000
+        console.log(money >= 1500 ? "버스를 탈 수 있다" : "버스를 탈 수 없다");
+        // 한 줄로 사용 가능
+        let money2 = 1000
+        console.log(money2 >= 1500 ? "버스를 탈 수 있다" 
+                                :(1500-money2)+"원 부족, 버스를 탈 수 없다");
+        // 삼항 연산자 연습
+        // 나이가 19세 이상이면 성인입니다.
+        // 미만이면 학생입니다는 문자열에 변수를 담은 후
+        // document.write로 출력하세요
+        let age = 23;
+        document.write(age >= 19 ? "<h3>성인입니다👩</h3>"
+                                : "<h3>"+(age)+"살이므로 학생입니다👩‍🎓✍</h3>");
+    </script>
+</body>
+</html>

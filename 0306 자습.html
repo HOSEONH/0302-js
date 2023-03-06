@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let n = 10;
+    let sum = 0;
+    for (let i= 1; i <= n; i++) { 
+        if (i % 2 == 1) {  
+        continue
+        } // 참인 동안에만 실행할 명령문
+        sum += i;
+        document.write(i + " ----- " + sum + "<br>");
+    }
+    </script>
+
+    for (초기식; 조건식; 증감식){}
+    i=1, i가 n보다 작거나 같을 때, ++해줄꺼야 
+    반복문이 실행될 때 한번만 실행되는 코드
+    반복문이 실행될 조건을 지정하는 코드, 조건식이 true일때만 반복문 실행
+    반복문이 한번 실행 된 후에 실행되는 코드
+    1.초기식 실행
+    2.조건식이 true일 경우 실행될 코드 실행
+    3.증감식 실행
+    4.다시 조건식 검사 true일 경우 2번으로 돌아가서 반복문 실행
+    5.조건식이 false가 될 때까지 반복
+
+    i=1이야 1 <= 10 true
+    1%2 == 1 true
+    종료
+    1++
+    i=2이야 2<=10 true
+    2%2 == 1 flase 
+    
+
+</body>
+</html>

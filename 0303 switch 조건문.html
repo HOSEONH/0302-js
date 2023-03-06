@@ -33,6 +33,38 @@
         // 작성을 할 때는 같은 자료형으로 
         //변수와 케이스가 같을 때 실행된다
         //반드시 브레이크가 있어야 현재의 케이스가 실행된다
+
+        /* 스위치문 대신에 if-else if 를 사용했을 경우 */
+        // 1월~12월 값을 입력했을 때 그 일수를 출력
+        let month = 3;
+
+        // 출력해야 할 결과가 동일할 때는
+        // 논리연산자 (||, &&)를 이용해서 조건식을 계산할 수 있다
+        // || : 두 개의 조건식 중에서 하나가 참일 때 실행
+        // && : 두 개의 조건식이 전부 참일 때 실행
+        if ( month == 1 ) {
+            document.write("<p>31일</p>")
+        } else if ( month == 2 ) {
+            document.write("<p>28일</p>")
+        } else if ( month == 3 ) {
+            document.write("<p>31일</p>")
+        } else if ( month == 4 ) {
+            document.write("<p>30일</p>")
+        } 
+
+        // 결과가 동일하다면 하나로 합쳐서
+        if ( month == 1 || month == 3 || month == 5 ||
+            month == 7 || month == 8 || month == 10 ||
+            month == 12) {
+            document.write("<p>31일</p>")
+        } else if ( month == 2 ) {
+            document.write("<p>28일</p>")
+        } else if ( month == 4 || month == 6 ||
+                    month == 9 || month == 11 ) {
+            document.write("<p>30일</p>")
+        } 
+
+
     </script>
 </body>
 </html>
