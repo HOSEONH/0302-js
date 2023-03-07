@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1~10 까지 증가하여 출력
+        // 1. 몇 번 반복할지 확인.
+        // 2. 초기값과 증가값, 조건식 
+
+        // 1~10까지 10번 반복
+        // 1) i의 값을 1로 시작
+        for (let i = 1; i<=10 ;i++) {
+            document.write(`<p>${i}</p>`)
+        }
+
+        // 2) i의 값을 0으로 시작
+        for(let i=0; i<10; i++) {
+            document.write(`<p>${i+1}</p>`)
+        }
+
+        // 10부터 1까지 카운트다운
+        // 1. 반복할 횟수 : 10번반복
+        // 2. 초기값과 증가감소식, 조건식
+        
+        // 1) 초기값= 10, 감소식(--) , i>0
+        // 초기값과 증가감소식을 확인하여 조건식작성
+        for(let i=10; i>0 ;i--) {
+            document.write(`<p>${i}</p>`);
+        }
+
+        // 2) 초기값= 0, 1씩 증가(++), i<10(10번)
+        // 반복문안에서 계산: 10-i
+        for( let i=0; i<10; i++ ) {
+            document.write(`<p>${10-i}</p>`)
+        }
+
+        // 구구단 2단 출력
+        // 반복할 횟수 : 1~9 9번
+        // 초기값:1 , 증가값(++), 조건식 i<=9
+        for(let i=1; i<=9 ;i++) {
+            document.write(`<p>2X${i}=${2*i}</p>`);
+        }
+
+        // 1이 아닌 값을 증가 감소할때 (복합대입연산자 사용)
+        for (let i =0; i<10 ; i+=3 ) {
+            document.write(`<p>${i}</p>`)
+        }
+
+        /* 배열과 반복문 */ 
+        // 1. 반복횟수 : 배열의 길이
+        let scores = [60, 50, 70, 55, 100];
+        // 1)in - index
+        for(let i in scores) {
+            document.write(`<p>${scores[i]}</p>`);
+            // 조건문 : 변수(scores[i]), 조건식(>=60)
+            if (scores[i]>=60) {
+                document.write(`<p>${scores[i]}점:합격</p>`);
+            } else {
+                document.write(`<p>불합격</p>`);
+            }
+        }
+
+        // 2)배열의 길이를 이용한 for
+        for(let i=0; i<scores.length;i++) {
+            // 조건문 : 변수(scores[i]), 조건식 (>=60)
+            if(scores[i]>=60) {
+                document.write(`<p>${scores[i]}점:합격</p>`);
+            } else {
+                document.write(`<p>불합격</p>`);
+            }
+        }
+
+        // 3)of - 배열안의 값
+        for(let score of scores ) {
+            document.write(`<p>${score}</p>`);
+            if (score>=60) {
+                document.write(`<p>${score}점:합격</p>`);
+            } else {
+                document.write(`<p>불합격</p>`);
+            }
+        }
+
+        document.write("<h5>😊 1~100까지 짝수만 출력</h5>");
+        /* 반복문과 조건문 실습 */
+        // 1~100까지 짝수만 출력하세요
+        // 반복문 : 1~100 횟수, 1, i<=100, i++
+        // 조건문 : 변수1, 조건식:짝수 > i%2 == 0
+        for (let i=1; i<=100; i++) {
+            if (i%2 === 0) {
+                document.write(`${i}, `);
+            }
+        }
+        /*
+        for(let i=1; i<=100; i++) {
+            if (i%2 === 0) {
+                document.write(`<sapn>${i} </sapn>`);
+            }
+        }
+        */
+        document.write(`<hr>`);
+        // if문을 쓰지 않고 증감식의 값을 바꿔서 출력
+        for (let i=2; i<=100; i+=2) {
+                document.write(`<sapn>${i} </sapn>`);
+        }
+
+        // 1~50까지 7의 배수만 출력하세요
+        document.write("<h5>😊 1~50까지 7의 배수만 출력</h5>");
+        // 반복문 : 1~50, i=1, i<=50, i++
+        // 조건문 : 변수 i, i%7 == 0
+        for (let i=1; i<=50; i++) {
+            if (i%7 === 0) {
+                document.write(`<sapn>${i} </sapn>`);
+            }
+        }
+        document.write(`<hr>`);
+        for (let i=1; i<=50; i++) {
+            if (i%7 === 0) {
+                document.write(`${i}, `)
+            }
+        }
+
+        document.write("<h5>😊 중첩 for문 실습 - 구구단 2~9단까지</h5>");
+        // 구구단 2~9단까지
+        // 바깥쪽 2~9단
+        // 안쪽 *1~*9
+        for(let i=2; i<=9; i++) {
+            document.write(`<span>${i}단</span><br>`);
+            for(let j=1; j<=9; j++) {
+                document.write(`<span>${i} X ${j} = ${i*j}</span>`);
+                document.write("<br>")
+            }
+            document.write("<br>")
+        }
+        
+        document.write("<hr>");
+        // 바깥반복문 (2단~9단)
+        // 안쪽반복문 (1~9)
+        for (let dan=2; dan<=9; dan++) {
+            for (let j=1; j<=9; j++) {
+                document.write(`<p>${dan}X${j}=${dan*j}</p>`);
+            }
+        }
+
+        document.write("<hr>");
+        document.write("<h5>for문 연습</h5>");
+        document.write("<h5>😊 점수 배열 [60,70,80,90,40,70,70]을 만들어서 평균값을 구하세요</h5>");
+        // 점수 배열[60,70,80,90,40,70,70]을 만들어서 평균값을 구하세요
+        // 배열 안에서 모든 수를 꺼내서 사용 - 더해서 사용할 수 있다
+        // 반복 : 배열의 갯수
+        let jsScores = [60, 70, 80, 90, 40, 70, 70];
+        let jsSum = 0;
+        for (let i=0; i<jsScores.length; i++) {
+            // document.write(jsScores[i]);
+            // jsSum = jsSum + jsScores[i];
+            jsSum += jsScores[i];
+
+            // 모두 더한 합을 얻고 싶다면 for문이 끝난 후에 사용
+            // document.write(jsSum);
+        }
+        document.write(`<p>${jsSum/jsScores.length}</p>`);
+
+
+        document.write("<h5>😊 1~100까지의 수 중 홀수만 모두 더한 값을 출력하세요</h5>");
+        // 1~100까지의 수 중 홀수만 모두 더한 값을 출력하세요
+        // 반복문 : 1~100 반복
+        // 조건문 : 홀수 / 참일 때 할일 : 값들을 합함
+        let oddSum = 0;
+        for(let i = 1; i<=100; i++) {
+            if(i%2 == 1) {
+                oddSum += i;
+                // console.log(i);
+                // addSum += i;
+            }
+        }
+        document.write(`<p>${oddSum}</p>`)
+
+        document.write("<h5>😊 1~100까지 3의 배수와 5의 배수의 합을 출력하세요 </h5>");
+        // 1~100까지 3의 배수와 5의 배수의 합을 출력하세요 
+        // 조건이 두개일 때 논리 연산자 사용 : || &&
+        // 반복 : 1~100
+        // 조건 : i%3 == 0, i%5 == 0 / 참일 때 숫자들을 합함
+        let sum2 = 0;
+        for (let i =1; i<=100; i++) {
+            if(i%3==0 || i%5==0) {
+                // console.log(i);
+                sum2 += i;
+            }
+        }
+        document.write(`<p>${sum2}</p>`)
+
+        let sum3 = 0;
+        for(let i = 1; i<=100; i++) {
+            if ( i%3 == 0 ) {
+                // console.log(i)
+                sum3 += i;
+            } else if ( i%5 == 0 ) {
+                // console.log(i)
+                sum3 += i;
+            }
+        }
+        document.write(`<p>${sum3}</p>`)
+
+        /*
+        for (let i=1; i<=100; i++) {
+            if(i%3 === 0) {
+            }
+            for (let j=1; j<=100; j++) {
+            if(j%5 === 0) {
+            }
+            document.write(`${i+j} `)
+            }
+        } */
+    </script>
+</body>
+</html>

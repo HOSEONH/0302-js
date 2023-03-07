@@ -21,7 +21,6 @@
             //let test="hi"
             document.write(`<p>${i}</p>`);
         }
-        // 
         // document.write(`<p>${test}</p>`); // 오류! for 바깥으로 나오면 i값을 사용할 수 없다.
         // let을 이용하면 for안에서 사용한 변수는 for 바깥으로 나가면 없어진다
 
@@ -78,12 +77,12 @@
         /* for문과 배열 */
         // in : 배열의 요소갯수 만큼 반복
         let numbers = ["일", "이", "삼", "사"];
-        for (i in numbers) {
+        for (let i in numbers) {
             // i의 값은 인덱스의 값
             document.write(`<p>${i}</p>`);
             // numbers[인덱스]를 통해 배열안의 값을 가져올 수 있다
             document.write(`<p>${numbers[i]}</p>`);
-        } //일일히 세서 확인할 수도 있지만 numbers
+        } // 일일히 세서 확인할 수도 있지만 numbers
         document.write(`<p>배열의 길이:${numbers.length}</p>`)
 
         // 배열의 길이로 반복
@@ -98,7 +97,7 @@
         // of : 배열의 값을 가져와서 반복
         // 배열의 값을 가져오기에 변수 이름을 지정
         // 가져오는 값을 다른 값으로 가져옴 (배열값)
-        for(number of numbers){
+        for(let number of numbers){
             document.write(`<p>${number}</p>`);
         }
 
@@ -150,8 +149,9 @@
         // 배열 안의 값을 바꿀 때는 인덱스 바꿔야함
         students[1] = "성춘향";
         document.write(`<p>${students}</p>`);
-        for (let students of students) {
-            // student 이 변수는 
+        for (let student of students) {
+            // student 이 변수는 배열의 값을 할당
+            // 값이 변하지 않음
             student = "이름 없음";
         }
         document.write(`<p>${students}</p>`);
@@ -161,6 +161,31 @@
         }
         document.write(`<p>${students}</p>`);
 
+        document.write("<h5>😊 중첩반복문</h5>");
+        /* 중첩반복문 */
+        // for문 안에 for문 사용
+        for (let i=0; i<3; i++) {
+            // document.write(`<p>${i}</p>`);
+            for (let j=0; j<2; j++) {
+                document.write(`<span>(i : ${i}, j : ${j})</span>`);
+            }
+            document.write("<br>"); // 줄바꿈
+        }
+
+        document.write("<h5>😊 중첩배열</h5>");
+        /* 중첩배열 */
+        let array = [[1, 2],[3, 4],[5, 6]];
+        // 중첩배열을 사용할 때, 바깥배열의 요소의 인덱스를 확인
+        // 안쪽 배열의 요소를 인덱스를 확인하여 값을 가져올 수 있다
+        
+        document.write("<h5>😊 중첩배열과 반복문</h5>");
+        // 중첩배열과 반복문
+        for(let i=0; i<3; i++) {
+            for(let j=0; j<2; j++) {
+                document.write(`<span>${array[i][j]} </span>`)
+            }
+            document.write("<br>")
+        }
     </script>
 </body>
 </html>

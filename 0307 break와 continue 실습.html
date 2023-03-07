@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // break를 사용하여 1~10까지 출력 후 빠져나오기
+        // 반복 : 1~10 출력 while(true), 초기값(1), num++
+        // break 조건문 : num == 10
+        let num = 1; 
+        while (true) {
+            document.write(`<p>${num}</p>`);
+            if(num == 10) {
+                break;
+            }
+            num++; // while증가식을 원하는 위치에 둘 수 있기 때문에 
+            // 위치에 따라서 값이 달라지는 경우가 있음
+            // 그래서 초기값은 가장 위쪽, 
+            // 증감식은 가장 아래쪽에 두는 식으로 작성하면 좋음
+        }
+        document.write(`<hr>`);
+        // continue를 이용하여 3의 배수 출력 X
+        // 반복 : 1~10
+        // continue 조건문 : 3의 배수일 때
+        for(let i=1; i<=10; i++) {
+            if(i%3 == 0) { // 3의 배수일 때 실행
+                continue; // 아래 있는 내용을 실행하지 않고 바로 위로
+            }
+            document.write(`<p>${i}</p>`)
+        }
+
+    </script>
+</body>
+</html>
