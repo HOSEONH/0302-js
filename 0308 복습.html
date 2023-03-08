@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function intro() {
+            document.write("<p>안녕하세요. 반갑습니다🤗💗</p>");
+        }
+        intro();
+
+        document.write("<h5>'function' 키워드를 사용해 함수를 선언!</h5>");
+
+        document.write("<h5>😊 두 수를 더하는 함수</h5>");
+        // 두 수를 더하는 함수
+        function add (num1, num2) {
+            if(num2 == undefined) { // 이런 조건이 필요해 // 값이 할당되지 않았을 때의 경우만 지정해둔거구나
+                num2 = 0; 
+            }
+            return num1+num2;
+        }
+        add(2, 3);
+        console.log (add(5));
+
+        // 편의상 모든 함수 내용은 body에 입력합니다.
+
+        document.write("<h5>😊 명시적 함수 실습 1</h5>");
+        function introName(name) {
+            document.write(`<p>안녕하세요. ${name}입니다. 반갑습니다!😈</p>`);
+        }
+        introName("깡깡")
+
+        document.write("<h5>😊 명시적 함수 실습 2</h5>");
+        function introNameReturn(name) {
+            return `안녕하세요 ${name}입니다. 반갑습니다!😎`
+        }
+        document.write(introNameReturn("꽁꽁")); // 안 쪽에 있는 값을 먼저 실행한다고 했기 때문에 name값 . 인수를 매개변수에 전달하고 
+
+        document.write("<hr>"); // 잠깐 return에 대해
+        document.write("<h5>👻 'return'키워드의 다음에 오는 값을 함수의 결과 값으로 반환한다.</h5>");
+        document.write("<h6>반환한다는 것은 함수 내부에서 계산된 값을 함수 외부에서 사용될 수 있도록 하는 것.</h6>");
+        document.write("<h6>함수 실행 결과를 반환하는 것이지 반환값을 변경하는 것은 아님.</h6>");
+        document.write("<h6>반환된 결과값은 변수에 저장하거나, 다른 함수의 인자로 전달하여 사용할 수 있음.</h6>");
+        document.write("<hr>");
+
+        // 실습 3은 하지 않고 넘어갑니다.
+        document.write("<h5>😊 명시적 함수 실습 4</h5>");
+        function area(num1, num2) {
+            result = num1*num2;
+            return result;
+        }
+        document.write(area(5, 10));
+
+        document.write("<h5>😊 명시적 함수 실습 5</h5>");
+        function avrg(numAarry) {
+            let sum = 0;
+            for (let num of numAarry) {
+                sum += num;
+            }
+            return sum / numAarry.length;
+        }
+
+        let numAarry = [30, 60, 40, 60, 20];
+        document.write(avrg(numAarry));
+
+        document.write("<hr>");
+        document.write("<h5>😊 초과된 인수와 부족한 인수</h5>");
+        // 부족한 인수
+        introName();// 넣어주지 않은 값은 undefined
+        // 초과 인수
+        introName("짱구", "철수"); // 초과된 값은 사용하지 않는다
+
+        document.write("<h5>😊 나머지 매개변수</h5>");
+        document.write("<h6>함수 호출 시 배열 형태로 받을 수 있음.</h6>");
+        function sum(...nums) {
+            let result = 0;
+            for (let num of nums) { // 마지막 요소까지 실행된 후 반복문 종료
+                result += num;
+            }
+            return result;
+        }
+
+        console.log(sum(1, 2, 3));
+        console.log(sum(4, 7, 3, 9));
+
+        document.write("<hr>");
+        document.write("<h5>😊 화살표 함수</h5>");
+        // =>
+        let subArrow = (num1, num2) => num1-num2;
+        document.write(`${subArrow(50, 10)}`);
+        
+        // 기존의 함수 표현식
+        // let subArrow = function(num1, num2) {
+        //     return num1 - num2;
+        // };
+        const img = new URL(image.png); 
+
+        // 기존의 함수 표현식
+        // let sum = function(a, b) {
+        //     return a + b;
+        // }
+
+        // => 
+        //let sum = (a, b) => a + b;
+
+        // 중괄호 {}대신에 => 기호를 사용
+        // 함수의 매개변수가 하나이면 괄호() 생략 가능
+        // 함수 내부에서 리턴값을 반환할 때, return 키워드 생략 가능
+    </script>
+</body>
+</html>
