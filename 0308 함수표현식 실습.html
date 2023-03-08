@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 함수 표현식 실습 */
+        let sub = function(num1, num2) { // script안에서 let실행됨
+            return num1-num2;
+        }
+        document.write(`<p>${sub(10,5)}</p>`);
+
+        document.write(`<h5>😊 숫자를 넣었을 때 홀수인지 짝수인지</h5>`);
+        // 숫자를 넣었을 때 홀수 인지 짝수인지 알려주는
+        // 함수표현식 작성 : oddEvenCheck
+        // oddEvenCheck(3) > return "홀수";
+        // oddEvenCheck(6) > return "짝수";
+        /*
+        let oddEvenCheck = function(num) {
+            if(num%2 === 0) {
+                return "짝수";
+            } else {
+                return "홀수";
+            }
+        }
+        document.write(oddEvenCheck(3));
+        */
+
+        document.write(`<hr>`);
+        // 홀수 짝수 확인
+        // 조건문 : num%2 == 0 / 짝수, 홀수
+        let num = 4; // 임의의 값을 넣어줌 매개변수 num 값이 계속 바뀌는
+        let result = "";
+        if(num%2 === 0) {
+            result = "짝수";
+        } else {
+            result = "홀수";
+        }
+        document.write(`${result}`);
+        document.write(`<hr>`);
+        ////////////////////////////////
+        let oddEvenCheck = function(num) {
+            if(num%2 == 0) {
+                // return을 만나면 함수를 빠져나옴
+                return "짝수";
+            } else {
+                return "홀수";
+            }
+            document.write("함수 끝")
+        }
+        document.write(oddEvenCheck(3));
+
+        // 삼항연산자를 사용한 홀수 짝수
+        let oddEvenCheckOper = function(num) {
+            return (num%2 == 0) ? "짝수" : "홀수" // num값을 2로 나눴을 때 짝수, 홀수
+        }
+
+
+    </script>
+</body>
+</html>

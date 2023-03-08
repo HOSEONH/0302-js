@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 함수 작성 공간 */
+        // 매개변수를 가지고 리턴값은 없는 함수
+        function introName(name) {
+            // 내용실행
+            document.write(`<p>안녕하세요 ${name}입니다. 반갑습니다👻</p>`); // 실행 할 내용
+            print(`안녕하세요 ${name}입니다`);
+        }
+        // 값을 입력했을 때 document.write(`<p></p>`);
+        function print(string) { // 출력 함수
+            document.write(`<p>${string}</p>`);
+        }
+
+        // 매개변수를 가지고 리턴값을 가지는 함수
+        function introNameReturn(name) {
+            // return `안녕하세요 ${name}입니다. 반갑습니다`
+            return "안녕하세요 "+ name + "입니다👧";
+        }
+
+
+        // 함수 작성
+        function area(num1, num2) {
+            let result = num1*num2; // 산술연산자가 있기 때문에 숫자라고 예상
+            return result;
+        }
+
+        /*
+        function print_(number) { // 출력 함수
+            document.write(`${number}`);
+        }
+        // 
+        function area(num1, num2) {
+            document.write(`${num1*num2}`);
+            return num1*num2;
+        }
+        */
+
+        //////////////////////////////////////
+        function avrg(array) {
+            let numArrayResult = numA/numArray.length;
+            return numArrayResult;
+        }
+        //////////////////////////////////////
+        // 배열을 매개변수로 받아와서 실행하는 함수
+        function avrg(numArray){ // numArray로 받아와짐
+            let avrgResult = 0;
+            let sum = 0;
+            for(let num of numArray) {
+                sum += num;
+            }
+            avrgResult = sum/numArray.length; // length를 가져와서 하는 이유는 직접 셀 수가 없으므로 갯수를 알수 있도록 
+            return avrgResult;
+        }
+        ///////////////////////////////////////
+        function add(number1, number2) {
+            let numberResult = number1+number2; 
+            return result;
+        }
+        ///////////////////////////////////////
+        // 두 수를 더하는 함수
+                function add (num1, num2) {
+            if(num2 == undefined) {
+                num2 = 0;
+            }
+            return num1+num2; // 계산식도 return해서 보내줄 수 있다. 계산된 결과가
+        }
+
+        // 두 수를 곱하는 함수
+        // 매개변수에 기본값을 정해줄 수 있다
+        function multiply(a, b=1){ // 곱하는 함수기 때문에 1
+            return a*b;
+        }
+        
+        // 나머지 매개변수를 사용하여 값을 가져오는 함수
+        // 가져온 값은 배열의 형태
+        function addAll(...number){
+            let sum = 0;
+            for (let i=0; i<number.length; i++) {// 배열, 안에 있는 것들 가져오기 위해서
+                sum += number[i]; 
+            }
+            return sum;
+        } // 선언만 했기 때문에 호출해서 사용해야함
+
+    </script>
+</head>
+<body>
+    <script>
+        introName("꽁꽁");
+        introName("꽁꽁꽁");
+
+        // document.write(introNameReturn("쿼카"));
+        // introNameReturn("쿼카"); return에서는 안된다
+
+        // 가장 안쪽 ()에 있는 내용부터 실행된다
+        print (introNameReturn("쿼카"));
+
+        // 함수를 만들기 전에
+        // script에서 확인 후 함수에 넣기
+        // 매개변수 > 매개변수의 이름과 임의의 값
+        // 실행내용 > 그대로 작성
+        // 리턴값 > 변수에 넣어서 확인
+        let num1 = 4;
+        let num2 = 4;
+        let returnResult; // 리턴값 확인
+        let result; // 사각형 넓이의 값
+        // 실행내용
+        result = num1*num2
+        // 리턴결과 확인
+        returnResult = result; // 리턴해서 돌려줄 값
+        print(returnResult); // 리턴값이 나온 것을 확인 > 함수에 넣기
+
+        ///////////////////////////////////////
+        // 위의 내용을 바탕으로 작성한 함수 호출
+        print(area(4, 3));
+        print(area(5, 10));
+        area()
+
+        //////////////////////////////////////
+        /*
+        let numArray = [30, 60, 40, 60, 20];
+        let numA = 0;
+        for (let i=0; i<numArray.length; i++){
+            numA += numArray[i];
+        }
+
+        numArrayResult = numA/numArray.length // 실행내용
+        numArrayReturnResult = numArrayResult; // 리턴해서 돌려줄 값
+        print(avrg(numArray));
+        */
+        /////////////////////////////////////
+        let numArray = [30, 60, 40, 60, 20];
+        let avrgResult; // 평균값
+        let sum = 0;
+        // 실행할 내용
+        // 배열의 값을 모두 더해야함 : for-of/length
+        for(let num of numArray) {
+            sum += num;
+        }
+        print(sum);
+        avrgResult = sum/numArray.length;
+        print(avrgResult);
+        
+        //////////////////////////////////////
+        // 위의 내용을 함수로 호출
+        print(avrg(numArray));
+        let array2 = [1, 2, 3, 4, 5];
+        print(avrg(array2)); 
+        print(avrg([1])); //???이게 뭐야
+
+        //////////////////////////////////////
+        // 초과된 인수와 부족한 인수
+        introName();// 넣어주지 않은 값은 undefined
+        // 초과된 값은 사용하지 않는다
+        introName("짱구", "철수");
+
+        print(add(5));
+        print(add(5, 5));
+
+        //////////////////////////////////////
+        //삼항연산자?
+
+        print(multiply(5)); // 마우스 올려서 확인 ?디폴트 값 값이 들어가지 않아도, 넣어도 된다
+        print(multiply(5, 3));
+
+        // 나머지 매개변수를 사용하는 함수
+        // 인수가 몇개가 들어갈 지 모를 때 배열로 받아온다
+        document.write("<p>",
+                        "안녕 ",
+                        "두번째 내용입니다",
+                        "</p>"); 
+
+        print(addAll(1, 2, 3, 4, 5)); // 각각의 값을 배열로 받아서
+        print(addAll(5)); // [5] 
+    </script>
+</body>
+</html>
