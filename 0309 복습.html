@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<h5>😊 재귀 함수</h5>")
+        // 재귀함수
+        function factorial(n) {
+            if(n <= 1) {
+                return n;
+            }
+            return n * factorial(n-1);
+        }
+        factorial(5)
+
+        // 작동 방식 확인
+
+        5 * factorial(4)                //save
+        5 * 4 * factorial(3)            //save
+        5 * 4 * 3 * factorial(2)        //save
+        5 * 4 * 3 * 2 * factorial(1)    //save
+        5 * 4 * 3 * 2 * 1 // 처음에 앞에서부터 숫자가 1까지 생기고 뒤에서 곱해지면서 5까지 간다
+                            // 식을 다 만들었고
+                        //지금부터 계산 실행? 이라는게 아닐까?
+        5 * 4 * 3 * 2
+        5 * 4 * 6
+        5 * 24
+        120 
+
+        document.write("<h5>😊 재귀 함수 실습</h5>")
+        function hi(num) { // 함수는 function 키워드로 시작 
+            if (num <= 0) {
+            } else {
+                document.write("<p>환영합니다💙</p>")
+                hi(num-1);
+            }
+        }
+        hi(3)
+
+        document.write("<h5>😊 재귀 함수 실습</h5>")
+        // 1~num 총합 구하는 함수
+        function sum(num) {
+            if (num <= 0) {
+                return num;
+            } 
+            return num - sum(num-1);
+        }
+        sum(10)
+
+        document.write("<h5>😊 콜백함수</h5>")
+
+    </script>
+</body>
+</html>
