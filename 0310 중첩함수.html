@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 중첩함수 : 함수 안에서 작성한 함수 */
+        function outerFunction() {
+            let value = 10; // 안쪽에서 사용할 값 지정
+            // 함수 안에서 작성된 함수는
+            // 작성된 함수안에서 쓸 수 있다 // 별개의 공간으로 사용하게 됨 // 그 안에서 사용한 것들은 다른 공간에서는 사용 할 수 없음.
+            function innerFunction() { // 함수 안에 함수가 들어간 형태
+                alert(value)// value에 접근하기 위함 value 값을 알려주는 경고창
+            } // 안쪽 함수도 호출을 해주어야 실행 
+            innerFunction(); // 안쪽 함수 호출 !
+        }
+        outerFunction();
+        // innerFunction();
+        // 바깥에서 쓰고 싶다면,,,
+        /*
+        value값 접근이 안됨 innerFunction실행 불가능
+        안쪽에 있는 값을 바깥으로 접근을 하려면 리턴으로만 가능한데
+        리턴 외에 안쪽에서 따로 처리해 주고 싶을 때는 이렇게 한다
+        중첩함수 
+        함수안에 있는 값을 다른 방법으로 처리하기 위해 사용한다  
+        */
+
+        // 중첩함수 연습
+        // add를 통해 호출 한다 
+        function add(a,b) {
+            let sum = a+b; // 미리 더해둔 것은 pinterNum값을 가져오려고 sum에다가 바로 접근해서 가져오기 위함
+            function printNum() {
+                // document.write를 이용하여 sum출력
+                document.write(`${sum}`)
+            }
+            printNum();
+        }
+        add(5,6);
+
+        
+    </script>
+</body>
+</html>

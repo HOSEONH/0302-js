@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 클로저 함수 : 함수 안에 중첩함수를 리턴해서 함수의 변수값을 바꾸는 함수 */
+        // 함수는 바깥에 있는 함수로 생각, 중첩함수는 return안에 있는 함수, 마지막 함수는 클로저를 말함
+
+        // 함수 안에 지역변수는 호출할 때마다 초기화 // undifined로 초기화
+        function count() {
+            let countNum = 0; // countNum의 값이 어떻게 전달되는지 확인하기 위함
+            return countNum += 1; // 전달하려고 함 // 본인의 값을 return한 이후에
+        }
+        console.log(count());
+        console.log(count());
+
+        // countNum이라는 것을 사용하는 가상의 공간을 만들수 있다
+
+        // 클로저 함수를 이용하여 함수안의 변수값을 접근
+        function countClosure() {
+            // 함수안에 지역변수
+            let countNum = 0; // let countNum에는 직접 접근이 불가능하고 아래에 있는 function으로 접근이 가능하다
+            // return을 통해서 중첩함수 전달
+            return function() {// 리턴을 통해서 전달하기 때문에 이름없이도 사용할 수 있음
+                return countNum +=1;
+            } // 중첩함수지만 리턴을 통해 카운터라는 변수에 작성했기 때문에 가능하다는 것 ?
+        }
+        console.log(countClosure()); // 실행이 안된다
+        let counter = countClosure();
+
+        console.log(counter) // counter도 함수기 때문에 ()를 붙여서 사용
+
+    </script>
+</body>
+</html>
