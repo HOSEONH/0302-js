@@ -75,8 +75,23 @@
         // 그 안에 array값이 직접 바뀌는 것과
 
         // push(), pop() // array의 값을 직접 바꿈
-        array.pop()
+        array.pop();
+        // 가장 끝에 있는 배열 요소를 삭제한다.
         document.write(`<p>${array}</p>`);
+        document.write("<hr>");
+
+                // Array 객체 실습
+                let numArray = [3,6,7,2,7,3,1];
+        document.write(`<p>${numArray}</p>`);
+        numArray.sort();
+        document.write(`<p>${numArray}</p>`);
+        document.write("<hr>");
+
+        let flowerArray = ["튤립", "장미", "국화"];
+        console.log(flowerArray.pop());
+        console.log(flowerArray.pop());
+        console.log(flowerArray.pop());
+        document.write("<hr>");
 
 </body>
 </html>

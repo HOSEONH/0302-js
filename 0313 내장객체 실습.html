@@ -71,9 +71,107 @@
         /* string */
         let name = "홍길동";
         let centerChar = name.charAt(1); // 가운데 글자 가져오기
-        let replaceName = name.replace(centerChar,"*") // (바뀔 글자, 대신에 들어갈 글자)
-        document.write(`<p>${replaceName}</p>`) // 출력하지 않으면 안나온다
+        let replaceName = name.replace(centerChar,"*"); // (바뀔 글자, 대신에 들어갈 글자)
+        document.write(`<p>${replaceName}</p>`); // 출력하지 않으면 안나온다
 
+        // Date() 객체 실습
+        let date = new Date();
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+
+                // Math 객체 실습
+        // Math.PI를 이용하여 반지름의 넓이가 3인 원의 넓이를 구하세요
+        // 원의 넓이를 구하는 공식 : r*r*PI
+        let r = 4;
+        document.write(`원의 넓이 : ${r*r*Math.PI}`);
+
+        
+        /* Date 객체 - 날짜/시간 */
+        let today = new Date(); // 현재 시간을 한번만 가져온다 의미
+        document.write(`<p>${today.getMinutes()}</p>`);
+        // getMinutes 현재 시간
+        // getMinutes 속성이 아니라 함수기 때문에
+        // ()를 붙이지 않고 실행하면 코드가 나오게 된다.
+
+        // 메소드기 때문에 그 값을 가져오면 된다
+        // 날짜 : 달을 가져올 때 달의 값의 범위가 0~11이기에 1을 더해서 사용
+        document.write(`<p>${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일</p>`); //getDate월요일부터 일요일까지의 값을 숫자로
+
+        // 시간
+        document.write(`<p>${today.getMinutes()}분 ${today.getSeconds()}초</p>`);
+        
+        // 일월화수목금토(0~6) // 일요일이 0
+        // > 배열[인덱스] / 조건문
+        document.write(`<p>${today.getDay()}</p>`);
+        // getTime : 시작시간과 끝시간을 이용해서 전체 걸린 시간 체크
+        document.write(`<p>${today.getTime()}</p>`); // 밀리초로 출력됨
+        // 초를 사용해서 작성할 수도 있지만 3개의 값을 각각 구해서 계산
+        // 해야하기 때문에 getTime밀리초 전체를 
+        // ex) for문을 실행할 때 걸리는 시간
+        let startTime = new Date(); // 시작 시간
+        for (let i = 0; i < 1000; i++) {
+            console.log(i);
+        }
+        let endTime = new Date(); // 끝나는 시간
+        document.write(`<p>${endTime-startTime}</p>`);
+
+        // date객체의 set 메소드
+        today.setFullYear(2020);
+        document.write(`<p>${today.getFullYear()}</p>`);
+        
+        // UTC 날짜
+        document.write(`<p>${today.getUTCHours()}시 ${today.getUTCMinutes()}분</p>`);
+
+        /* Math객체 - 생성자로 객체를 만들지 않고 바로 사용 */
+        // 수학 연산에 관련된 상수와 메소드를 가지고 있음
+        document.write(`<p>${Math.random()}</p>`); // 0~1사이의 수
+        document.write(`<p>${Math.max(1, 3, 5)}</p>`); // 숫자를 여러개를 넣어도 그 중에서 가장 큰 값 출력
+        // 소수 자리수는 사용하기 번거롭기 때문에 
+        // 정수로 바꿔서 사용하려고 한다
+        // 랜덤한 수를 정수로 바꿔서 사용하기
+        // Math.random()에 원하는 범위의 수를 곱해서 사용
+        document.write(Math.random()*2);
+        // 뒤에 있는 실수는 필요없어서 
+        document.write(`<p>${Math.floor(Math.random()*5)+1}</p>`); // 0~4라는 숫자에서 1을 더하면 0~5까지 나오게 된다
+
+
+        /* Number : 숫자와 관련된 객체 */
+        // Number로 접근해서 쓰는 메소드와 속성이 있고
+        // 객체를 만들어서 접근하는 메소드가 있다
+        // 특정함수 말고는 잘 쓰지 않는다.
+        document.write(`<p>${Number.isNaN(NaN)}</p>`);
+        let num = 10.56; 
+        let num2 = new Number(10.56)
+        document.write(`<p>${num.toFixed(1)}</p>`) // 객체에 접근해서 사용해보기
+        // toFixed() 고정된 값으로
+        // 반올림을 기준으로 정수값 출력
+        // toFix()는 숫자의 값의 소수점 어디까지 보여줄지 정함
+        // 바로 값을 넣어서 작성했다. ⬆
+
+        /* 래퍼객체 */
+        // 숫자, boolean, 문자열과 같은 기초자료형은
+        // 메소드를 사용할 수 없지만 객체의 메소드를 사용하기 위해
+        // 자바스크립트에서 메소드를 사용하기전에 객체로 만들어서
+        // 메소드에 접근한다
+        
+        // 배열 객체
+        // toString : 객체의 담은 변수이름을 호출했을 때 나오는 내용과 동일
+        let arrayString = ["1, 2, 3, 4"];
+        // 객체의 이름으로 
+        arrayString.toString = function() {return "배열"};
+
+        document.write(`<p>${arrayString.toString()}</p>`);
+        let object = {
+            name : "객체",
+            value : "값",
+            // toString 메소드를 작성하면 객체의 변수이름을 호출했을 때
+            // 리턴할 내용을 정할 수 있다
+            toString : function() {return this.value}
+        };
+        document.write(`<p>${Object}</p>`);
+
+        // 내장객체 🔼
     </script>
 </body>
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">DOM</h1> <!--html요소 선택--> 
+    <p class="class-name">내용을 작성하였습니다</p>
+    <ol id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+
+    <a href="#">다음으로 연결</a>
+    <form id="form">
+        <label for="">이름</label>
+        <input type="text" id="name" > 
+    </form>
+
+    <ul id="list2"> <!-- 찾기 쉽도록 아이디 값-->
+        <li>요소</li>
+        <li>요소</li>
+        <li>요소</li>
+        텍스트
+    </ul>
+<script>
+        /* DOM : 도큐먼트 오브젝트 모델 : 문서객체 모델 */
+        // html의 요소를 객체로 선택하거나 생성
+        
+        // html요소 선택 / body안에 작성
+        let title = document.querySelector("#title");
+         //객체로 받아오기 때문에 변수에 저장해서 
+        console.log(title);
+        
+        let list = document.querySelector("#list");
+        console.log(list);
+        // console.dir은 문서 객체를 객체 형태로 출력해서 보여줌
+        console.dir(list);
+
+        // document.querySelectorAll()을 사용하면 여러개의
+        // 요소를 배열에 넣어서 가져온다
+        // document.getElement~, document.getElments의 
+        // 이름에 따라서 한개의 요소 또는 배열로 들고 온다.
+        // return되는 값(들고오는 값)이 중요하기 때문에 querySelector
+        // 여러개를 하면 가져오기도 번거롭게 된다. 
+
+        // 요소(태그) 생성
+        let element = document.createElement("h1");
+
+        // 요소의 속성 추가/수정
+        // innerHTML 요소안의 내용 변경
+        // .을 통해 속성에 접근 
+        // .style객체의 속성에 접근하여 변경
+        element.innerHTML = "원하는 값 작성";
+        element.id = "title2" ;
+        element.style.color="red";
+
+        // querySelector를 이용한 요소 선택과 
+        // innerHTML을 이용한 내부 내용 작성
+        let classElement = document.querySelector(".class-name"); // 태그이름 그대로 적거나 .을 통해 접근
+        classElement.innerHTML = "클래스를 통해서 수정된 내용입니다";
+        let title2 = document.querySelector(`#title`);
+        title2.innerHTML = "아이디를 들고와서 수정한 내용입니다"
+        title.innerHTML="DOM";
+        
+        // querySelectorAll() : 배열로 요소들을 들고옴
+        let listLi = document.querySelectorAll("#list>li");
+        console.log(listLi); // 배열안에 들어가있음
+
+        // 인덱스값으로 접근해서 바꾸기
+        listLi[0].innerHTML = "요소를 수정하였습니다"
+        listLi[1].innerHTML = "요소를 수정하였습니다"
+        listLi[2].innerHTML = "요소를 수정하였습니다"
+
+        // for문을 통해서 내용을 바꾸기
+        // for - 배열 in / length // 안의 값에 접근하기 
+        let array = ["HTML", "CSS", "JavaScript"] // 배열값을 받아온 것이 있다면 
+        for (let i = 0; i < listLi.length ; i++) {
+            listLi[i].innerHTML = array[i]; // 전체가 아닌 한줄만
+        }
+
+        // DOM 요소 실습2
+        // DOM 요소 속성
+        let a = document.querySelector("a");
+        a.href = "https://www.daum.net/";
+
+        let input = document.querySelector("#form>#name");
+        // querySelector()이용하여 요소를 찾지 못하면 null
+        console.log(input);
+        // null에서 속성을 접근할 수 없기 때문에 오류가 출력된다
+        input.disabled = "true"; // 자바스크립트를 통해서도 속성 제어 가능
+
+        // DOM 요소 실습 3
+        classElement.style.backgroundColor="rgb(255, 255, 0)";
+
+        title2.style.textDecoration = "line-through"
+        listLi[0].style.color="blue"
+        for (let i = 0; i < listLi.length ; i++) {
+            // 객체의 속성의 특징 : 없는 속성값에 값을 할당
+            // 새로운 속성에 값을 할당 ? 적용되지 않았다면
+            // 잘못된 속성에다가 값을 넣지 않았는지 확인
+            listLi[i].style.color="blue";
+        }
+
+        // Node : DOM객체의 내용을 text/element/attr로 구분
+        // 객체를 글자와 태그와 속성으로 구분하는 단위
+        // .childNodes에서 태그와 글자로 구분되어 들어가 있음
+
+        // 노드로의 접근
+        // 부모 : parentNode, parentElement
+        // 자식 배열 : childNodes, children
+        // 첫번째, 마지막 자식 : firstChild, firstElementChild
+        // last는 앞에 있는 first만 바꿔서
+        // 형제 : nextSibling, nextElementSibling / previousSibling
+        // 각 부모나 형제로 접근한 뒤에 (변수에 할당한 후)
+        // 그 속성에 다시 부모나 형제 자식에게 접근가능
+        // 늘어나는게 싫다면 변수에 할당해서 
+
+        // list의 2번째 li인 CSS값을 출력
+        // 1) list 요소에 .을 통해 찾기
+        console.log("요소찾기", list.firstElementChild.nextElementSibling);
+
+        // 2) list 요소의 첫번째 자식을 변수로 저장한 후 찾기
+        let child = list.firstElementChild;
+        console.log("요소찾기", child.nextElementSibling);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* BOM : 브라우저 오브젝트 모델 : 브라우저 객체 모델 */
+        // 브라우저(인터넷 창)에 접근하여서
+        // 자바스크립트로 제어하기 위한 모델
+        // 가장 상위 객체 : window,
+        // 현재 script의 객체가 window이므로 this로 접근 가능
+        // 항상 this로 접근 x
+        // 접두사를 제외하고 접근을 많이 한다.
+        // this라는 내용으로도 접근할 수 있구나
+        // let i = 0; // 프로그램이 열려있는 동안에 this값이 무엇인지 알아보자
+        // document도 하나의 객체이고, window안에 속해진 객체
+
+        // location 객체
+        // 현재 웹페이지에 대한 정보를 가지고 있다
+        // .reload()를 사용하면 페이지가 새로고침이 된다
+        document.write(`<p>${location.href}</p>`);
+
+        // history 객체
+        // 히스토리 정보 저장
+        // length 히스토리 개수 확인,
+        // .back(), forward(), go() 메서드로 페이지 이동
+
+        // 대화상자 - window객체에서 제공해주는 메서드
+        let choice = confirm("선택을 해주세요");
+        document.write(`<p>${choice}</p>`);
+
+        /* BOM 객체 실습 */
+        // confirm(), navigator
+        let answer = confirm("운영체제를 알려드릴까요?");
+        // if (answer){}
+        if (answer == true) {
+            document.write(`<p>${navigator.platform}</p>`);
+        }
+
+        // 함수와 메소드를 사용할 때
+        // return 값을 다시 함수의 인수값으로 넣어 사용가능
+        // 함수 안에 함수자체가 들어가는 것이 아닌
+        // 함수 안에 실행함수를 호출해서 사용 가능 
+        // 변수에 담지 않고 바로 return값 사용 가능
+        if ( confirm("운영체제를 알려드릴까요?")) { // 인수값
+            document.write(`<p>${navigator.platform}</p>`);
+        }
+        // 함수를 그대로 넣어주게 되면 메소드를 먼저 실행하고 그 결과값 리턴값을 출력하게 된다
+        // 괄호를 통해서 작성 호출하는 함수는 전부 안에 있는
+        // 내용도 실행하지만 리턴값을 실행하기 위한 내용이다.
+        // 변수에 담지 않고도 사용 가능
+        
+
+    </script>
+</body>
+</html>
