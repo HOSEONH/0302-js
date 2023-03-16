@@ -24,9 +24,55 @@
             for (let i=1; i<=9; i++) {
                 console.log(`${dan}X${i}=${i*Number(dan)}`); // Number()숫자일때만 곱해지도록
             };
-            // p태그로 출력
+
+
+            // p태그로 출력 - innerHTML
+            // 1~9까지 내용이 반복됨으로 
+            let p = document.querySelector("#gugudan>p");
+            p.innerHTML = "";
+            for (let i=1; i<=9; i++) {
+                // 바로 innerHTML로 할당을 하면 이전 값이 사라짐
+                // 이전값을 살리기 위해서 이전 문자열과 더해서 출력
+                p.innerHTML += `${dan}X${i}=${i*Number(dan)}`;
+            };
+
+
             // ul태그를 만들어서 li생성하여 출력
+            // 1) ul 태그 생성 - createElement('ul')
+            // 2) li 태그 안에 dan*1이 들어간 태그가 9개 생성(반복문) - innerHTML
+            // 3) li 태그로 생성된 요소를 ul 태그에 9번 추가(한번만 적어주어도 9번이 추가되고 생성)
+            // 4) ul 태그도 body 추가 - appenChild
+            let ul = document.createElement('ul'); // 생성
+            for (let i=1; i<=9; i++) {
+                let li = document.createElement('li'); // 생성 // 새로운 li값 
+                li.innerHTML = `${dan}X${i}=${i*Number(dan)}`
+                ul.appendChild(li) // () 추가하고자 하는 요소의 이름  // ul태그에 li값이 다 들어간것 확인 가능
+            };
+            // 함수안에서 사용되는 변수는 지역변수
+            // 이벤트 발생할 때마다 함수가 실행될 때, 계속 사용할 수 있다.
+            // 동일한 이름으로 계속 사용할 수 있다.
+            let body = document.querySelector("body");
+            body.appendChild(ul);
         }
+
+
+        // function gugudnaPrint에서 사용한 for문을 풀어쓴 코드
+        let li = document.createElement('li');
+        li.innerHTML = `1`;
+        document.querySelector("body").appendChild(li);
+
+        let li = document.createElement('li');
+        li.innerHTML = `2`;
+        document.querySelector("body").appendChild(li);
+
+        let li = document.createElement('li');
+        li.innerHTML = `3`;
+        document.querySelector("body").appendChild(li);
+
+        // 변수 할당
+        let num = 1;
+        num = 10; // 10으로 수정
+        num = 10+5; // 가장 마지막이 num이 된것처럼
 
     </script>
 </body>
