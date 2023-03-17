@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 클릭 전환 이벤트</title>
+    <style>
+        .img {
+            background-image: url(./img/ham.jpg);
+            width: 300px;
+            height: 200px;
+            background-size : cover;
+            transition: all 1s;
+        }
+        .change-img {
+            background-image: url(./img/cat.jpg);
+            transition: all 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- div태그안에 이미지 넣어서 사용
+        이때 이미지를 클릭했을 때 다른 이미지로 바꾸기
+        CSS 백그라운드 이미지 바꾸기(classList사용)
+        1) class img에 원래 이미지 넣기
+        2) class chang-img에 다른 이미지로 바꾸기
+    -->
+        <div id="img" class="img change-img"></div>
+        <!-- id이름과 class이름 같아도 상관없다. -->
+        <!-- class="img change-img"띄어쓰기로 내용 붙여주기 -->
+    <script>
+        // img를 클릭했을 때 백그라운드 이미지를 바꿈
+        const img = document.querySelector("#img");
+        img.addEventListener("click", function(e){ // 익명함수 사용해서 만들기
+            // 클릭했을 때 새로운 클래스 추가
+            // classList.toggle()을 이용하면 클래스이름을 토글
+            e.target.classList.toggle("change-img");
+        })
+    </script>
+</body>
+</html>

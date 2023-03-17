@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 이벤트</title>
+    <style>
+        .on {
+            text-decoration: line-through;  /*text-decoration:은 전환효과 적용이 안됨*/
+            background-color: black;
+            /* 자바스크립트로 class 이름을 추가할 때 전환효과 사용 */
+            transition: background-color 0.5s;
+        }
+        /* CSS만 사용해서 체크했을 때 디자인 추가 */
+        .list>li>input[type="checkbox"]:checked+span {/*  선택자 통해서 접근하기 */
+        /* 형제 접근은 +(바로 뒤 접근) , 여러개 접근 ~*/
+            color: gray;
+            text-decoration: underline wavy;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- <ol>
+        <li id="first_list">
+            <input type="checkbox" name="" id="checkbox">첫번째 리스트입니다.</li>
+    </ol> -->
+
+    <ol id="checklist">
+        <li><input type="checkbox"> 첫번째 </li>
+        <li><input type="checkbox"> 두번째 </li>
+        <li><input type="checkbox"> 세번째 </li>
+    </ol>
+
+    <ul class="list">
+        <li><input type="checkbox"> <span> 첫번째 </span></li>
+        <li><input type="checkbox"> <span> 두번째 </span></li>
+    </ul>
+    <script>
+        // 체크리스트 input태그 클릭했을 때
+        // li태그 색 바꾸기
+        const checkbox = document.querySelector("#checkbox");
+        //checkbox.addEventListener("click", check); // 이 코드 뭐지?
+
+        function check(e) {
+            // li 태그의 색상을 lightgray로 수정
+            // li 태그로 접근 - input
+            // input:checkbox : e.target 으로 접근
+            // e.target에서 li로 접근
+            // input태그에서 li 부모로 접근하기 .parentNode
+            const li = e.target.parentNode;
+            // console.log(li); 콘솔로 확인
+            // e.target의 checked가 true일 때 색상 바꿈
+            if(e.target.checked) {
+                li.style.color = "lightgray";
+                // classList로 접근 / add() 함수 사용
+                li.classList.add("on");
+            } else {
+                li.style.color = "";
+                // 원래 값 돌리기
+                // 원래 값으로 돌릴때는 " "
+                // classList로 접근 / remove() 함수 사용
+                li.classList.remove("on");
+            } // 여러 개의 내용은 class로 접근하기
+        }
+
+        // 체크리스트 li요소 배열 들고와서 동일한 이벤트 추가
+        const checklist = document.querySelectorAll("#checklist>li>input[type='checkbox']");
+        // #checklist>li>input 이렇게만 해줘도 되지만
+        // 더 확실하게 하려면
+        // #checklist>li>input[type='checkbox']"); type을 붙여 사용한다.
+        for(let i=0; i<checklist.length; i++) {
+            checklist[i].addEventListener("click", check)
+        }
+
+    </script>
+</body>
+</html>

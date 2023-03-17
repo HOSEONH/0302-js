@@ -1,0 +1,46 @@
+/* 기본 태그 디자인 */
+* { margin: 0; padding: 0;}
+ul { list-style: none; }
+a { text-decoration: none; color: black; }
+
+/* tap_menu */
+.tab_menu{
+    margin: 20px;
+}
+
+/* tap_menu의 list의 li들을 나열*/
+.tab_menu .list {
+    display: flex;
+    /* justify-content: space-evenly; */
+    height: 170px;
+}
+/* a버튼 */
+.tab_menu .list li .btn {
+    padding: 0px 10px;
+    font-size: 1.2rem;
+}
+/* a버튼을 눌렀을 때 디자인  */
+.tab_menu .list li.on .btn {
+    color: rgb(128, 128, 128);
+    background-color: rgb(173, 208, 231);
+    border-radius: 10px;
+}
+
+/* contents */
+.tab_menu .list li .content {
+    display: none;
+    position: absolute;
+    left: 0; /* 지금은 tab하나만 구현이라 사용 */
+    margin-left: 10px; /* 감싸고 있는 margin값 추가 */
+    width: 500px;
+    height: 150px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: rgb(238, 174, 174);
+    border-radius: 10px;
+}
+
+/* 버튼을 눌렀을 때 보이는 화면 */
+.tab_menu .list li.on .content {
+    display: block;
+}
