@@ -32,9 +32,8 @@
         }
         console.log(countClosure()); // 실행이 안된다
         let counter = countClosure();
-
-        console.log(counter) // counter도 함수기 때문에 ()를 붙여서 사용
-
+        console.log(counter()) // counter도 함수기 때문에 ()를 붙여서 사용
+        console.log(counter())
     </script>
 </body>
 </html>

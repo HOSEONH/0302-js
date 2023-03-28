@@ -1,0 +1,21 @@
+.box {
+    height: 200px;
+    background-color: rgb(255, 254, 205);
+    border: 2px solid black;
+}
+.box-small {
+    height: 100px;
+    background-color: rgb(187, 233, 206);
+}
+.relative {
+    position: relative;
+    /* 현재는 이동 없음 상태 */
+}
+
+.absolute {
+    position: absolute;
+    /* 아래쪽이나 위쪽으로 해줄 때 이동됨 */
+    /* top: 0; */
+    bottom: 0;
+    /* 현재 화면 기준으로 이동 */
+}
